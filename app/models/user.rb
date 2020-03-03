@@ -8,4 +8,8 @@ class User < ApplicationRecord
   has_many :pictures, through: :items
   has_many :rentals
   has_many :reviews, through: :rentals
+
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  validates :location, presence: true
 end
