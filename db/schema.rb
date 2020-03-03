@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_02_103738) do
+ActiveRecord::Schema.define(version: 2020_03_03_092826) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2020_03_02_103738) do
   create_table "items", force: :cascade do |t|
     t.bigint "user_id"
     t.boolean "available"
-    t.decimal "price_per_day"
+    t.float "price_per_day"
     t.string "brand"
     t.string "model"
     t.text "product_description"
@@ -41,9 +41,9 @@ ActiveRecord::Schema.define(version: 2020_03_02_103738) do
   create_table "rentals", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "item_id"
-    t.date "start_dat"
+    t.date "start_date"
     t.date "end_date"
-    t.decimal "total_price"
+    t.float "total_price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["item_id"], name: "index_rentals_on_item_id"

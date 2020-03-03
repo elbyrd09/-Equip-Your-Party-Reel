@@ -9,4 +9,5 @@ class Item < ApplicationRecord
   validates :equipment_category, presence: true
   validates :user_description, length: {minimum: 15, maximum: 500}, presence: true
   validates :condition, presence: true
+
 end

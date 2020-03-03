@@ -47,7 +47,7 @@ end
 # create rentals
 3.times do
   rental = Rental.new(user: user_with_rentals, item: Item.all.sample)
-  rental.start_dat = Date.new(2020,2,3)
+  rental.start_date = Date.new(2020,2,3)
   rental.end_date = Date.new(2020,4,12)
   rental.total_price = (rand * rand(10..100)).round(2)
   rental.save
