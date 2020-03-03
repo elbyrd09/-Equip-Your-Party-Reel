@@ -14,6 +14,8 @@ gem 'sassc-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
+gem "typedjs-rails", "~> 2.0.9"
+
 
 group :development do
   gem 'web-console', '>= 3.3.0'
