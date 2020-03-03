@@ -1,2 +1,22 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="home-banner">
+  <div> <%= render 'shared/search' %> </div>
+  <h1 class="text-left ml-5">Equip your Party Reel!</h1>
+  <p class="text-left ml-5">Multimedia equipment delivery for rent</p>
+</div>
+
+<div class="container">
+  <div class="cards">
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(<%= asset_path 'photo.jpg' %>)">
+      Camera Body
+    </div>
+
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(<%= asset_path 'lens.jpeg' %>)">
+      Lenses
+    </div>
+
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(<%= asset_path 'water.png' %>)">
+      Accessories
+    </div>
+  </div>
+      <%= "Lorem ipsum dolor sit amet, consectetur adipisicing elit " * 10 %>
+</div>
