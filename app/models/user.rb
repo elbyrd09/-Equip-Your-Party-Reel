@@ -9,7 +9,8 @@ class User < ApplicationRecord
   has_many :rentals
   has_many :reviews, through: :rentals
 
-  validates :first_name, presence: true
-  validates :last_name, presence: true
+  validates :first_name, length: { minimum: 2 }, format: { with:  /\A[a-zA-Z]+\z/ }, presence: true
+  validates :last_name, length: { minimum: 2 }, format: { with:  /\A[a-zA-Z|\s]+\z/ }, presence:  true
   validates :location, presence: true
+
 end
