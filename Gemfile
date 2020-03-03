@@ -14,8 +14,10 @@ gem 'sassc-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
+# added by Evan for typed
 gem "typedjs-rails", "~> 2.0.9"
-
+# added by Matthijs, for seed file
+gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
