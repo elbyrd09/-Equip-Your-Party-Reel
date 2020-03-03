@@ -4,7 +4,7 @@ class Item < ApplicationRecord
   has_many :pictures
   has_many :reviews, through: :rentals
 
-  validates :price_per_day, presence: true
+  validates :price_per_day, presence: true, format: { with: /\A\d+(?:\.\d{2})?\z/ }, numericality: { greater_than: 0, less_than: 1000000 }
   validates :product_description, length: {minimum: 15, maximum: 500}, presence: true
   validates :equipment_category, presence: true
   validates :user_description, length: {minimum: 15, maximum: 500}, presence: true
