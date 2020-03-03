@@ -3,17 +3,19 @@
 
 <div class="container">
   <div class="cards">
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(<%= asset_path 'photo.jpg' %>)">
-      <%= link_to "Camera body", items_path(@items) %>
-    </div>
+    <a href="items">
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(<%= asset_path 'photo.jpg' %>)">Camera bodies
+      </div>
+    </a>
+    <a href="items">
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(<%= asset_path 'lens.jpeg' %>)">Lenses
+      </div>
+    </a>
 
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(<%= asset_path 'lens.jpeg' %>)">
-      <%= link_to "Lenses", items_path(@items) %>
-    </div>
-
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(<%= asset_path 'water.png' %>)">
-      <%= link_to "Accessories", items_path(@items) %>
-    </div>
+      <a href="items">
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(<%= asset_path 'water.png' %>)">Accesories
+        </div>
+      </a>
   </div>
       <%= "Lorem ipsum dolor sit amet, consectetur adipisicing elit " * 10 %>
 </div>
