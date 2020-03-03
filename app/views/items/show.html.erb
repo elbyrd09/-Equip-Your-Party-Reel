@@ -1,2 +1,25 @@
-<h1>Items#show</h1>
-<p>Find me in app/views/items/show.html.erb</p>
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <%= link_to "#", class: "navbar-brand" do %>
+<!--     need to update the logo so that it goes back to homepage
+ -->  <% end %>
+</div>
+
+ <div class="card-show mb-3" style="max-width: 540px;">
+  <div class="row no-gutters">
+     <div class="col-md-4">
+        <img src="..." class="card-img" alt="...">
+     </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title"><!-- item.brand & item.model for item.price_per_day ($xx.xx/day) --> </h5>
+          <p class="card-text"><!-- item.description --></p>
+          <p class="card-text"><small class="text-muted"><!-- item.condition and has been rented x amount of times --></small></p>
+        </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- < link_to "Edit this Item", edit__item_path(@item)  %>
+ -->

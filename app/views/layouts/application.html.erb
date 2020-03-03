@@ -15,10 +15,15 @@
     <!-- Just put them here for now --MvO -->
 
     <%= yield %>
+
+
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+
+
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
 
   </body>
+    <%= render 'shared/footer' %>
 </html>
