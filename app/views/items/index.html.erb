@@ -1,1 +1,9 @@
 <%= render 'shared/cardindex' %>
+
+<div
+  id="map"
+  style="width: 100%;
+  height: 600px;"
+  data-markers="<%= @markers.to_json %>"
+  data-mapbox-api-key="<%= ENV['pk.eyJ1IjoiZWxieXJkMDkiLCJhIjoiY2s3ZGQ4ZWE1MXlhbzNmcDYxMTBnOWZpOCJ9.A53j3CFowdVQBZYBa0TK2g'] %>"
+></div>
