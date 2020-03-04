@@ -5,5 +5,5 @@ import { initUpdateNavbarOnScroll } from '../components/navbar';
 
 initUpdateNavbarOnScroll();
 
-import {initflatpicker} from '..plugins/init_flatpicker';
+import {initflatpicker} from '../plugins/init_flatpickr';
 initflatpicker();
