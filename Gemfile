@@ -18,8 +18,8 @@ gem 'webpacker'
 gem "typedjs-rails", "~> 2.0.9"
 # added by Matthijs, for seed file
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
-# added by Matthijs, for secret keys
-gem 'dotenv-rails', groups: [:development, :test]
+# added by Matthijs for CLoudinary
+gem 'cloudinary', '~> 1.12.0'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
