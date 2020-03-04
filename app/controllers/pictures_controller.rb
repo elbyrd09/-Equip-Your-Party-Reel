@@ -2,7 +2,8 @@ class PicturesController < ApplicationController
   before_action :set_picture, only: [:update, :destroy]
 
   def create
-    @pictures = Picture.new(picture_params)
+    @picture = Picture.new(picture_params)
+    @picture.item = Item.find(params[:item_id])
     if @picture.save
         redirect_to edit_item_path(@picture.item.id)
     else
@@ -31,7 +32,7 @@ class PicturesController < ApplicationController
   end
 
   def picture_params
-    params.require(:picture).permit(:description)
+    params.require(:picture).permit(:description, :photo)
   end
 
 end
