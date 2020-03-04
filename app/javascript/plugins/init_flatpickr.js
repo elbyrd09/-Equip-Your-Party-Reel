@@ -26,5 +26,5 @@ const initflatpicker = () => {
       });
     })
 };
-
+}
 export { initflatpicker };
