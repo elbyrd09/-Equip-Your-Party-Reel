@@ -4,22 +4,25 @@
  -->  <% end %>
 </div>
 
- <div class="card-show mb-3" style="max-width: 540px;">
-  <div class="row no-gutters">
-     <div class="col-md-4">
-        <img src="..." class="card-img" alt="...">
-     </div>
-      <div class="col-md-8">
-        <div class="card-body">
-          <h5 class="card-title"><!-- item.brand & item.model for item.price_per_day ($xx.xx/day) --> </h5>
-          <p class="card-text"><!-- item.description --></p>
-          <p class="card-text"><small class="text-muted"><!-- item.condition and has been rented x amount of times --></small></p>
-        </div>
+<div class="container">
+   <div class="card-show mb-3" style="max-width: 540px;">
+    <div class="row no-gutters">
+       <div class="col-md-4">
+          <img src="<%= asset_path('canon.jpeg') %>" class="card-img" alt="Canon 5D Mark 4">
+       </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">Canon Mark 4 5D @ $25/day </h5>
+            <p class="card-text">The latest in Canon's innovational technology which includes 4K video and an enhanced photo upload utilizing WiFi capabilities</p>
+            <p class="card-text"><small class="text-muted">Item Condition: "As new" and has been rented 5 times</small></p>
+            <%= link_to "Rent the Canon Mark 4 5D", edit__item_path(@item)  %>
+          </div>
+      </div>
     </div>
   </div>
 </div>
 
 
 
-<!-- < link_to "Edit this Item", edit__item_path(@item)  %>
- -->
+<%= link_to "Edit this Item", edit__item_path(@item)  %>
+
