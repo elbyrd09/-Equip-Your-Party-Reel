@@ -8,7 +8,7 @@ class Rental < ApplicationRecord
   validate  :end_date_after_start_date
 
 def unavailable_dates
-    rent.pluck(:start_date, :end_date).map do |range|
+    rentals.pluck(:start_date, :end_date).map do |range|
       { from: range[0], to: range[1] }
     end
   end
