@@ -1,1 +1,17 @@
 
+
+<%  @item.pictures.each do |picture| %>
+  <%= cl_image_tag picture.photo.key, height: 300, width: 400, crop: :fill %>
+<% end %>
+
+<%= simple_form_for [@item, @picture] do |f| %>
+ <div class="form-inputs">
+    <%= f.input :description %>
+    <%= f.input :photo, as: :file %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit 'Add a picture' %>
+  </div>
+<% end %>
+

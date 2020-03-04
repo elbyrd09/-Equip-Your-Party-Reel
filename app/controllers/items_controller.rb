@@ -31,6 +31,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @picture = Picture.new
   end
 
   def destroy
