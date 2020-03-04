@@ -16,7 +16,7 @@ User.destroy_all
 # PASSWORD ALWAYS == 'password'
 
 # create user with rentals
-user_with_rentals = User.new(password: 'password', email: 'matthijsvanoostende@gmail.com')
+user_with_rentals = User.new(password: 'password', email: 'user1@gmail.com')
 user_with_rentals.first_name = 'GuyWhoRents'
 user_with_rentals.last_name = 'Jackson'
 user_with_rentals.location = 'Canggu'
@@ -24,7 +24,7 @@ user_with_rentals.save
 
 # create user who rents out his equipment
 
-user_with_items = User.new(password: 'password', email: 'matthijsvanoostende@hotmail.com')
+user_with_items = User.new(password: 'password', email: 'user2@hotmail.com')
 user_with_items.first_name = 'GuyWhoOwns'
 user_with_items.last_name = 'Smith'
 user_with_items.location = 'Sanur'
