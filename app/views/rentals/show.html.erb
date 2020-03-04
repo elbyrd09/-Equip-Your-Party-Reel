@@ -1,2 +1,12 @@
 <h1>Rentals#show</h1>
 <p>Find me in app/views/rentals/show.html.erb</p>
+
+<div id='item-rent-dates' data-unavailable="<%= @item.unavailable_dates.to_json %>">
+    <% if current_user.id != @item.user_id  %>
+       <%= simple_form_for([@item, @rental]) do |f| %>
+           <%= f.input :start_date, as: :string, type: :text %>
+           <%= f.input :end_date, as: :string, type: :text %>
+           <%= f.submit "Rent it", class: "btn btn-primary" %>
+        <% end %>
+    <% end %>
+ </div>
