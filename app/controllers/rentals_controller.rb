@@ -1,5 +1,5 @@
 class RentalsController < ApplicationController
-  before_action :set_rental, only[:destroy]
+  before_action :set_rental, only: [:destroy]
 
   def show
     @rentals = Rental.all
