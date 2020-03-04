@@ -6,6 +6,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @rental = Rental.new
   end
 
   def create
@@ -40,7 +41,7 @@ class ItemsController < ApplicationController
   private
 
   def set_item
-    @item = item.find(params[:id])
+    @item = Item.find(params[:id])
   end
 
 
