@@ -4,6 +4,16 @@
   height: 60vh;
   background-position: center;
   color: #eee;
-  text-align: center;
-  padding-top: 40vh;
+  text-align: left;
+  padding-top: 30vh;
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  padding-left: 30px;
+}
+
+.banner-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }

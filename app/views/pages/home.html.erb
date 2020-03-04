@@ -1,22 +1,21 @@
-<div class="home-banner">
-  <div> <%= render 'shared/search' %> </div>
-  <h1 class="text-left ml-5">Equip your Party Reel!</h1>
-  <p class="text-left ml-5">Multimedia equipment delivery for rent</p>
-</div>
+ <%= render 'shared/banner' %>
+
 
 <div class="container">
   <div class="cards">
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(<%= asset_path 'photo.jpg' %>)">
-      Camera Body
-    </div>
+    <a href="items">
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(<%= asset_path 'photo.jpg' %>)">Camera bodies
+      </div>
+    </a>
+    <a href="items">
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(<%= asset_path 'lens.jpeg' %>)">Lenses
+      </div>
+    </a>
 
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(<%= asset_path 'lens.jpeg' %>)">
-      Lenses
-    </div>
-
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(<%= asset_path 'water.png' %>)">
-      Accessories
-    </div>
+      <a href="items">
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(<%= asset_path 'water.png' %>)">Accesories
+        </div>
+      </a>
   </div>
       <%= "Lorem ipsum dolor sit amet, consectetur adipisicing elit " * 10 %>
 </div>
