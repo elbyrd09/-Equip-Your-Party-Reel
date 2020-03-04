@@ -1,12 +1,21 @@
-<h1>Rentals#show</h1>
-<p>Find me in app/views/rentals/show.html.erb</p>
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <%= link_to "#", class: "navbar-brand" do %>
+<!--     need to update the logo so that it goes back to homepage
+ -->  <% end %>
+</div>
 
-<div id='item-rent-dates' data-unavailable="<%= @item.unavailable_dates.to_json %>">
-    <% if current_user.id != @item.user_id  %>
-       <%= simple_form_for([@item, @rental]) do |f| %>
-           <%= f.input :start_date, as: :string, type: :text %>
-           <%= f.input :end_date, as: :string, type: :text %>
-           <%= f.submit "Rent it", class: "btn btn-primary" %>
-        <% end %>
-    <% end %>
- </div>
+<!-- Info on item thats been rented -->
+<h2>You rented: <%= @rental.item.model %> </h2>
+<p>Owned by <%= @rental.user.first_name %> </p>
+<p>From <%= @rental.start_date %> to <%= @rental.end_date %> </p>
+
+<!-- Cancel order button -->
+<%= simple_form_for(@rental, :method => :delete) do |f| %>
+  <%= f.submit 'Cancel your rental' %>
+<% end %>
+
+<%= simple_form_for [@rental] do |f| %>
+  <%= f.submit 'Add a Review', disabled: true %>
+<% end %>
+
+<!-- Write a review button -->

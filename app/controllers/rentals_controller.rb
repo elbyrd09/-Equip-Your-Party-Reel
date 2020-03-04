@@ -2,6 +2,7 @@ class RentalsController < ApplicationController
   before_action :set_rental, only: [:show, :destroy]
 
   def show
+    @item = Item.find(@rental.item.id)
   end
 
   def create
@@ -13,7 +14,7 @@ class RentalsController < ApplicationController
     if @rental.save
       redirect_to rental_path(@rental)
     else
-      render 'new'
+      redirect_to item_path(@item)
     end
   end
 
