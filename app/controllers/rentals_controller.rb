@@ -14,7 +14,6 @@ class RentalsController < ApplicationController
     if @rental.save
       redirect_to rental_path(@rental)
     else
-      raise
       redirect_to item_path(@item)
     end
   end
