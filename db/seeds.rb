@@ -39,7 +39,7 @@ user_with_items.save
   item.model = Faker::Vehicle.model #=> "A8"
   item.product_description = Faker::Vehicle.standard_specs.join('')
   item.user_description = Faker::Books::Lovecraft.sentence
-  item.item_category = ["Camera", "Accesory", "Lens"].sample
+  item.item_category = ["Camera", "Accessory", "Lens"].sample
   item.condition = ["Poor", "Sufficient", "Good", "As new"].sample
   item.save
 end
