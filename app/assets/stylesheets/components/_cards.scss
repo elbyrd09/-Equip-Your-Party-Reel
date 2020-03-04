@@ -27,11 +27,19 @@
 }
 
 .card-index {
-  grid: 1fr 1fr 1fr;
-  border-radius: 5px;
-  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  padding: 20px;
+  font-size: 10px;
+  border-radius: 15px;
   margin: 20px;
   box-shadow: 0px 0px 25px -12px rgba(0,0,0,0.38);
+  img {
+    height: auto;
+    background-size: cover;
+  }
 }
 
 .card-show {
