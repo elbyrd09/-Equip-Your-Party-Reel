@@ -4,18 +4,26 @@
  -->  <% end %>
 </div>
 
+<div class="container">
 <!-- Info on item thats been rented -->
-<h2>You rented: <%= @rental.item.model %> </h2>
-<p>Owned by <%= @rental.user.first_name %> </p>
-<p>From <%= @rental.start_date %> to <%= @rental.end_date %> </p>
+  <div class="card-rental">
+    <div class="rental-card-info">
+      <!-- 'Camera' will be: <%= @rental.item.model %> -->
+      <h2>You rented: Canon5D Mark 4 </h2>
+      <p>Owned by <%= @rental.user.first_name %> </p>
+      <p>From <%= @rental.start_date %> to <%= @rental.end_date %> </p>
+    </div>
 
-<!-- Cancel order button -->
-<%= simple_form_for(@rental, :method => :delete) do |f| %>
-  <%= f.submit 'Cancel your rental' %>
-<% end %>
+    <!-- Cancel order button -->
+    <div class="rental-card-buttons">
+      <%= simple_form_for(@rental, :method => :delete) do |f| %>
+        <%= f.submit 'Cancel your rental', class: 'btn btn-warning' %>
+      <% end %>
 
-<%= simple_form_for [@rental] do |f| %>
-  <%= f.submit 'Add a Review', disabled: true %>
-<% end %>
-
-<!-- Write a review button -->
+    <!-- Write a review button -->
+      <%= simple_form_for [@rental] do |f| %>
+        <%= f.submit 'Add a Review', disabled: true, class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+  </div>
+</div>
