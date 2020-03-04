@@ -1,12 +1,15 @@
 class RentalsController < ApplicationController
-  before_action :set_rental, only: [:destroy]
+  before_action :set_rental, only: [:show, :destroy]
 
   def show
-    @rentals = Rental.all
   end
 
   def create
     @rental = Rental.new(rental_params)
+    @user = current_user
+    @item = Item.find(params[:item_id])
+    @rental.item = @item
+    @rental.user = @user
     if @rental.save
       redirect_to rental_path(@rental)
     else

@@ -14,7 +14,13 @@
             <h5 class="card-title">Canon Mark 4 5D @ $25/day </h5>
             <p class="card-text">The latest in Canon's innovational technology which includes 4K video and an enhanced photo upload utilizing WiFi capabilities</p>
             <p class="card-text"><small class="text-muted">Item Condition: "As new" and has been rented 5 times</small></p>
-            <%= link_to "Rent the Canon Mark 4 5D", edit__item_path(@item)  %>
+            <%= simple_form_for [@item, @rental] do |f| %>
+            <div class="form-actions">
+            <%= f.input :start_date, as: :date, html5: true %>
+            <%= f.input :end_date, as: :date, html5: true%>
+            <%= f.button :submit %>
+            </div>
+            <% end %>
           </div>
       </div>
     </div>
@@ -23,5 +29,5 @@
 
 
 
-<%= link_to "Edit this Item", edit__item_path(@item)  %>
+<%= link_to "Edit this Item", edit_item_path(@item)  %>
 
