@@ -8,6 +8,7 @@
 
 require 'faker'
 
+Picture.destroy_all
 Review.destroy_all
 Rental.destroy_all
 Item.destroy_all
