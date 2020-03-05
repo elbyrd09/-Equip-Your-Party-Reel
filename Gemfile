@@ -18,6 +18,8 @@ gem 'webpacker'
 gem "typedjs-rails", "~> 2.0.9"
 # added by Matthijs, for seed file
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
+# added by Evan for map (user wants to see how many cameras are in their radius, ie. 'search this area functionality of Google Maps')
+gem 'geocoder';
 # added by Matthijs for CLoudinary
 gem 'cloudinary', '~> 1.12.0'
 
