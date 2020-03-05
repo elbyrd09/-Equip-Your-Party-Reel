@@ -14,14 +14,12 @@
     <%= render 'shared/navbar' %>
     <!-- Just put them here for now --MvO -->
     <% if notice %>
-
-      <%= yield %>
-    </div>
     <p class="notice"><%= notice %></p>
     <% end %>
     <div class="main-container"></div>
     <%= yield %>
     <p class="alert"><%= alert %></p>
+    </div>
 
     <%= render 'shared/footer' %>
 
