@@ -3,6 +3,7 @@ class RentalsController < ApplicationController
 
   def show
     @item = Item.find(@rental.item.id)
+    @review = Review.new
   end
 
   def create
