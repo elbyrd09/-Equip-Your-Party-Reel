@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :edit, :udpate, :destroy]
+  before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   def index
     @items = Item.geocoded
@@ -28,9 +28,11 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
+    @picture = Picture.new
   end
 
   def update
+    @picture = Picture.new
     if @item.update(item_params)
         redirect_to item_path(@item.id)
     else
