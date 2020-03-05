@@ -16,7 +16,7 @@
             <div class="cards">
               <% @user.rentals.each do |rental| %>
                 <div class="card-index">
-                  <%= link_to 'See item', item_path(rental.item.id) %>
+                  <%= link_to 'See Rental', rental_path(rental.id) %>
                   <img src="<%= asset_path('canon.jpeg') %>" class="card-img-top" alt="Item image">
                   <div class="card-body">
                     <h5 class="card-title"> <%= rental.item.brand %> <%= rental.item.model %></h5>
