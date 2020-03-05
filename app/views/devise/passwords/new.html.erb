@@ -1,5 +1,6 @@
+<div style="background-position: center; height: 700px; background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(<%= asset_path 'camback.jpg' %>)">
 <div id="card">
-<h2>Forgot your password?</h2>
+<h2 class="fp">Forgot your password?</h2>
 
 <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
   <%= f.error_notification %>
@@ -16,4 +17,5 @@
   </div>
 <% end %>
 </div>
-<%= render "devise/shared/links" %>
+</div>
+
