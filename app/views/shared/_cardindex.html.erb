@@ -1,58 +1,23 @@
 <div class="container">
   <h2 class="mt-10">Results for Cameras</h2>
-    <div class="cards">
-        <div class="card-index">
-          <%= link_to item_path(Item.all.sample.id) do %>
+    <div class="row">
+      <% @items.each do |item| %>
+        <div class="col-md-3 col-sm-6">
+<!--           responsiveness is added at a medium screen, half screen for small screens, and large screen is 12 along with mobile
+ -->       <%= link_to item_path(item) do %>
+            <div class="card-index">
             <img src="<%= asset_path('canon.jpeg') %>" class="card-img-top" alt="Item image">
-             <div class="card-body">
-              <h5 class="card-title">Canon Mark 4 5D</h5>
-              <p class="card-text"> 4K Enabled DSLR Camera (Still and Video) </p>
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">Canon</li>
-              <li class="list-group-item">5D Mark 4</li>
-              <li class="list-group-item">'As New' - $25/Day</li>
-            </ul>
-          <% end %>
-          <div class="card-body">
-            <a href="#" class="card-link">See Owner Profile</a>
+                <h5 class="card-title"><%= item.brand %> - <%= item.model %></h5>
+                <p class="card-text"> <%= item.user_description %> </p>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">Condition is <%= item.condition %></li>
+                <li class="list-group-item">Price: $<%= item.price_per_day %> per day</li>
+              </ul>
+            <% end %>
           </div>
+          <!-- column and card need to close AFTER the iteration is done so that you create a column AND
+          a card for each iteration (in this case 4 columns across) -->
         </div>
-
-        <div class="card-index">
-          <%= link_to item_path(Item.all.sample.id) do %>
-            <img src="<%= asset_path('canon.jpeg') %>" class="card-img-top" alt="Item image">
-            <div class="card-body">
-              <h5 class="card-title">Canon Mark 4 5D</h5>
-              <p class="card-text"> 4K Enabled DSLR Camera (Still and Video) </p>
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">Canon</li>
-              <li class="list-group-item">5D Mark 4</li>
-              <li class="list-group-item">'As New' - $25/Day</li>
-            </ul>
-          <% end %>
-          <div class="card-body">
-            <a href="#" class="card-link">See Owner Profile</a>
-          </div>
-        </div>
-
-      <div class="card-index">
-        <%= link_to item_path(Item.all.sample.id) do %>
-          <img src="<%= asset_path('canon.jpeg') %>" class="card-img-top" alt="Item image">
-          <div class="card-body">
-            <h5 class="card-title">Canon Mark 4 5D</h5>
-            <p class="card-text"> 4K Enabled DSLR Camera (Still and Video) </p>
-          </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">Canon</li>
-            <li class="list-group-item">5D Mark 4</li>
-            <li class="list-group-item">'As New' - $25/Day</li>
-          </ul>
-        <% end %>
-        <div class="card-body">
-          <a href="#" class="card-link">See Owner Profile</a>
-        </div>
-      </div>
+      <% end %>
   </div>
 </div>
