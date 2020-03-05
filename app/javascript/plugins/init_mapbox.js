@@ -58,9 +58,10 @@ const initMapbox = () => {
       accessToken: mapboxgl.accessToken,
       //add this line to your code
       mapboxgl: mapboxgl
-    });
-  }
+    }))
+  })
 };
+}
 
 
 
