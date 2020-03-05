@@ -13,11 +13,11 @@
   <body>
     <%= render 'shared/navbar' %>
     <!-- Just put them here for now --MvO -->
-
-    <%= yield %>
-
-
+    <% if notice %>
     <p class="notice"><%= notice %></p>
+    <% end %>
+    <div class="main-container"></div>
+    <%= yield %>
     <p class="alert"><%= alert %></p>
 
 
