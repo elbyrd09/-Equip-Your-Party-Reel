@@ -1,29 +1,65 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to "#", class: "navbar-brand" do %>
-<!--     need to update the logo so that it goes back to homepage
- -->  <% end %>
-</div>
 
 <div class="container">
 <!-- Info on item thats been rented -->
   <div class="card-rental">
     <div class="rental-card-info">
-      <!-- 'Camera' will be: <%= @rental.item.model %> -->
-      <h2>You rented: Canon5D Mark 4 </h2>
-      <p>Owned by <%= @rental.user.first_name %> </p>
-      <p>From <%= @rental.start_date %> to <%= @rental.end_date %> </p>
+      <h5 class="card-title">You rented: <%= @rental.item.brand %> <%= @rental.item.model %> </h2>
+      <p class="card-text">Owned by <%= @rental.user.first_name %> </p>
+      <p class="card-text">From <%= @rental.start_date %> to <%= @rental.end_date %> </p>
     </div>
 
     <!-- Cancel order button -->
     <div class="rental-card-buttons">
-      <%= simple_form_for(@rental, :method => :delete) do |f| %>
-        <%= f.submit 'Cancel your rental', class: 'btn btn-warning' %>
-      <% end %>
 
-    <!-- Write a review button -->
-      <%= simple_form_for [@rental] do |f| %>
-        <%= f.submit 'Add a Review', disabled: true, class: 'btn btn-primary' %>
+    <!-- Check item link -->
+      <%= link_to "Check Item", item_path(@item), class: 'btn btn-secondary' %>
+
+    <!-- Button trigger modal to write a review-->
+      <% unless @rental.review %>
+        <%= simple_form_for(@rental, :method => :delete) do |f| %>
+         <%= f.submit 'Cancel your rental', class: 'btn btn-warning' %>
+        <% end %>
+        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal">
+          Add a review
+        </button>
       <% end %>
     </div>
   </div>
+  <% if @rental.review %>
+    <div class="rental-review">
+      <h5 class="card-title"> Review </h5>
+      <p class="card-text"> <%= @rental.review.content  %> </p>
+      <h5 class="card-title"> Rating </h5>
+      <p class="card-text"> <%= @rental.review.rating  %> </p>
+    </div>
+  <% end %>
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add a review</h5>
+        </div>
+        <div class="modal-body">
+          <%= simple_form_for [@rental, @review] do |f| %>
+            <div class="form-inputs">
+              <%= f.input :content %>
+              <%= f.input :rating %>
+            </div>
+
+            <div class="form-actions">
+              <%= f.submit 'Add a review', class: 'btn btn-secondary' %>
+            </div>
+          <% end %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
+
