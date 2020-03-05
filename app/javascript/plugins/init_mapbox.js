@@ -6,9 +6,14 @@ const fitMapToMarkers = (map, markers) => {
   //creating a new bounds element
   const bounds = new mapboxgl.LngLatBounds();
   //extending the bouds with all my markers
+  // A LngLatBounds object represents a geographical bounding box, defined by
+  // its southwest and northeast points in longitude and latitude.
+  // If no arguments are provided to the constructor, a null bounding box is created.
   markers.forEach(marker => bounds.extend([ marker.lng, marker.lat ]));
+  // .extend = Extend the bounds to include a given LngLat or LngLatBounds.
   //Adding some options to my bound
   map.fitBounds(bounds, { padding: 70, maxZoom: 12, duration: 3000 });
+  // .fitBounds = use only when fitting the initial bounds provided above.
 };
 
 const addMarkersToMap = (map, markers) => {
@@ -18,8 +23,8 @@ const addMarkersToMap = (map, markers) => {
     // Create a HTML element for your custom marker
     const element = document.createElement('div');
     element.className = 'marker';
-    // element.style.backgroundImage = `url('${marker.image_url}')`;
-    element.style.backgroundImage = "url('https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678111-map-marker-512.png')"
+    element.style.backgroundImage = `url('${marker.png}')`;
+    // element.style.backgroundImage = "url('https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678111-map-marker-512.png')"
     element.style.backgroundSize = 'contain';
     element.style.width = '25px';
     element.style.height = '25px';

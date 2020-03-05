@@ -1,0 +1,25 @@
+
+<% if notice == "Signed out successfully."%>
+  <div class="flash flash-warning alert alert-dismissible fade show" role="alert">
+    <span><%= notice %></span>
+    <a data-dismiss="alert" aria-label="Close">
+      <i class="fas fa-times"></i>
+    </a>
+  </div>
+  <% else %>
+    <div class="flash flash-success alert alert-dismissible fade show" role="alert">
+    <span><%= notice %></span>
+    <a data-dismiss="alert" aria-label="Close">
+      <i class="fas fa-times"></i>
+    </a>
+  </div>
+  <% end %>
+
+<% if alert %>
+  <div class="flash flash-danger alert alert-dismissible fade show" role="alert">
+    <span><%= alert %></span>
+    <a data-dismiss="alert" aria-label="Close">
+      <i class="fas fa-times"></i>
+    </a>
+  </div>
+<% end %>
