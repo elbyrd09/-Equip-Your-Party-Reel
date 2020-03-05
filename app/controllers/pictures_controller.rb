@@ -7,7 +7,7 @@ class PicturesController < ApplicationController
     if @picture.save
         redirect_to edit_item_path(@picture.item.id)
     else
-      render 'new'
+      redirect_to edit_item_path(@picture.item.id)
     end
 
   end

@@ -30,16 +30,37 @@
           <% end %>
         </div>
       </div>
-      <%= simple_form_for [@item, @picture] do |f| %>
-        <div class="form-inputs">
-          <%= f.input :description %>
-          <%= f.input :photo, as: :file %>
-        </div>
 
-        <div class="form-actions">
-          <%= f.submit 'Add a picture' %>
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal">
+        Add a picture
+      </button>
+
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Add a picture</h5>
+            </div>
+            <div class="modal-body">
+              <%= simple_form_for [@item, @picture] do |f| %>
+                <div class="form-inputs">
+                  <%= f.input :description %>
+                  <%= f.input :photo, as: :file %>
+                </div>
+
+                <div class="form-actions">
+                  <%= f.submit 'Add a picture', class: 'btn btn-secondary' %>
+                </div>
+              <% end %>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
         </div>
-      <% end %>
+      </div>
     </div>
   </div>
 </div>

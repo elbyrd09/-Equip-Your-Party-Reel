@@ -24,6 +24,7 @@ class ItemsController < ApplicationController
   end
 
   def update
+    @picture = Picture.new
     if @item.update(item_params)
         redirect_to item_path(@item.id)
     else
