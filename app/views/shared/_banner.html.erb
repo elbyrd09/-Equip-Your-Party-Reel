@@ -2,9 +2,19 @@
   <div class="banner-content">
     <h1>Equipment for Multimedia Professionals</h1>
     <p>Rent high caliber equipment from locals in your area</p>
-    <form action="items" class="form-inline">
-        <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-    </form>
+
+  <%= form_tag items_path, class: 'form-inline', method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control w-50",
+    placeholder: "Search equipment nearby"
+  %>
+  <%= submit_tag "Search", class: "btn btn-outline-success" %>
+<% end %>
+
+<!--     <form action="items" class="form-inline">
+        <input name="query" class="form-control" type="search" placeholder="Search" aria-label="Search">
+        <button class="" type="submit">Search</button>
+    </form> -->
   </div>
 </div>

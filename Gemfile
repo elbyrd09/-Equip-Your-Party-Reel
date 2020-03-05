@@ -22,6 +22,8 @@ gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'mast
 gem 'geocoder';
 # added by Matthijs for CLoudinary
 gem 'cloudinary', '~> 1.12.0'
+# added by Evan for PGSearch
+gem 'pg_search', '~> 2.3.0'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

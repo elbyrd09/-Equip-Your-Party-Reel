@@ -4,6 +4,14 @@ class Item < ApplicationRecord
   has_many :pictures
   has_many :reviews, through: :rentals
 
+  include PgSearch::Model
+
+  pg_search_scope :search_by_brand_and_model_and_item_category,
+      against: [ :brand, :model, :item_category ],
+      using: {
+        tsearch: { prefix: true, dictionary: 'english' }
+        }
+
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
 
