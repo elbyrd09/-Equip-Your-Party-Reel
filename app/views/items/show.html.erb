@@ -1,33 +1,57 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to dashboard_path, class: "navbar-brand" do %>
-  <% end %>
-</div>
 
 <div class="container">
-   <div class="card-show mb-3" style="max-width: 540px;">
-    <div class="row no-gutters">
-       <div class="col-md-4">
-          <img src="<%= asset_path('canon.jpeg') %>" class="card-img" alt="Canon 5D Mark 4">
-       </div>
-        <div class="col-md-8">
-          <div class="card-body">
-            <h5 class="card-title">Canon Mark 4 5D @ $25/day </h5>
-            <p class="card-text">The latest in Canon's innovational technology which includes 4K video and an enhanced photo upload utilizing WiFi capabilities</p>
-            <p class="card-text"><small class="text-muted">Item Condition: "As new" and has been rented 5 times</small></p>
-            <%= simple_form_for [@item, @rental] do |f| %>
-            <div class="form-actions">
+  <div class="row">
+    <div class="col-3 item-info-and-booking">
+      <div class="item-info">
+        <h5 class="card-title"> <%= @item.brand %> <%= @item.model %> </h5>
+        <p class="card-text"> <%= @item.product_description %></p>
+        <p class="card-text"> <%= @item.item_category %></p>
+        <hr>
+        <p class="card-text"> <%= @item.user.first_name %> <%= @item.user.last_name %> </p>
+        <p class="card-text"> <%= @item.user_description %> </p>
+        <p class="card-text"><small class="text-muted"> <%= @item.condition %> </small></p>
+        <p class="card-text"> Price per day:  <%= @item.price_per_day %> euro</p>
+      </div>
+      <div class="item-booking">
+        <%= simple_form_for [@item, @rental] do |f| %>
+          <div class="form-actions">
             <%= f.input :start_date, as: :date, html5: true %>
             <%= f.input :end_date, as: :date, html5: true%>
-            <%= f.button :submit %>
-            </div>
+            <%= f.button :submit, class: 'btn btn-secondary' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-9 item-pictures-carousel">
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+          <ol class="carousel-indicators">
+            <% @item.pictures.each_with_index do |picture, index| %>
+              <% active = 'class="active"' if index == 0 %>
+              <li data-target="#carouselExampleIndicators" data-slide-to="<%= index %> " <%= active %>></li>
+              <% active ='' %>
+            <% end %>
+          </ol>
+          <div class="carousel-inner">
+            <% @item.pictures.each_with_index do |picture, index| %>
+              <% active = 'active' if index == 0 %>
+              <div class="carousel-item <%= active %>">
+                <%= cl_image_tag picture.photo.key, class: "d-block w-100", alt: "Slide not showing " %>
+                <div class="carousel-caption d-none d-md-block">
+                  <p><%= picture.description %> </p>
+                </div>
+              </div>
+              <% active ='' %>
             <% end %>
           </div>
-      </div>
+          <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
     </div>
   </div>
 </div>
-
-
-
-<%= link_to "Edit this Item", edit_item_path(@item)  %>
-

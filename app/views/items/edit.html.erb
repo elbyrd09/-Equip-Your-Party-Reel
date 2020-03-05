@@ -1,17 +1,66 @@
+<div class="container">
+  <div class="row">
+    <div class="col-3 item-info-and-booking">
+      <div class="item-info">
+        <%= simple_form_for(@item) do |f| %>
+          <div class="form-inputs">
+            <%= f.input :brand, value: @item.brand || '' %>
+            <%= f.input :model, value: @item.model || '' %>
+            <%= f.input :product_description, value: @item.product_description || '' %>
+            <%= f.input :item_category, collection: [ "Camera", "Lens", "Accessory" ], value: @item.item_category || 'Camera' %>
+            <%= f.input :user_description, value: @item.user_description || '' %>
+            <%= f.input :condition, collection: [ "Poor", "Sufficient", "Good", "As New" ], value: @item.condition || 'Sufficient' %>
+            <%= f.input :price_per_day, value: @item.price_per_day || 0%>
+          </div>
 
+          <div class="form-actions">
+            <%= f.button :submit, class: 'btn btn-secondary' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-9 item-pictures-carousel">
+      <div class="pictures container">
+        <div class="row">
+          <%  @item.pictures.each do |picture| %>
+            <div class="col-6">
+              <%= cl_image_tag picture.photo.key, height: 300, width: 400, crop: :fill %>
+              <p> <%= picture.description %> </p>
+            </div>
+          <% end %>
+        </div>
+      </div>
 
-<%  @item.pictures.each do |picture| %>
-  <%= cl_image_tag picture.photo.key, height: 300, width: 400, crop: :fill %>
-<% end %>
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal">
+        Add a picture
+      </button>
 
-<%= simple_form_for [@item, @picture] do |f| %>
- <div class="form-inputs">
-    <%= f.input :description %>
-    <%= f.input :photo, as: :file %>
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Add a picture</h5>
+            </div>
+            <div class="modal-body">
+              <%= simple_form_for [@item, @picture] do |f| %>
+                <div class="form-inputs">
+                  <%= f.input :description %>
+                  <%= f.input :photo, as: :file %>
+                </div>
+
+                <div class="form-actions">
+                  <%= f.submit 'Add a picture', class: 'btn btn-secondary' %>
+                </div>
+              <% end %>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="form-actions">
-    <%= f.submit 'Add a picture' %>
-  </div>
-<% end %>
-
+</div>
