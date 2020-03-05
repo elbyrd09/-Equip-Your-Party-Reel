@@ -268,8 +268,7 @@ user_with_items.location = 'Sanur'
 user_with_items.save
 
 # create
-c = 0
-100.times do
+15.times do
   item = Item.new(user: user_with_items)
   item.available = true
   item.price_per_day = (rand * rand(1..10)).round(2)
@@ -281,8 +280,6 @@ c = 0
   item.condition = ["Poor", "Sufficient", "Good", "As new"].sample
   item.address = ADDRESSESS.sample
   item.save
-  c += 1
-  puts c.to_s + " items created"
 end
 
 # create rentals
