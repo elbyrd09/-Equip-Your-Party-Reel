@@ -314,19 +314,16 @@ puts "Created #{user_with_items}"
   case item.item_category
   when "Camera"
     item.model = CAMERA.sample
-    picture_url = URI.unescape(CAMERA_URL.sample)
-    picture_url = URI.open(picture_url)
+    picture_url = URI.open(CAMERA_URL.sample)
     picture_description = 'A camera that has been used a lot, picture taken from the front.'
   when "Lens"
     item.model = LENSES.sample
-    picture_url = URI.unescape(LENSES_URL.sample)
-    picture_url = URI.open(picture_url)
+    picture_url = URI.open(LENSES_URL.sample)
     picture_description = "I'm not using this lens anymore, still in good condition."
   when "Accessory"
     item.model = EQUIP.sample
-    picture_url = URI.unescape(EQUIP_URL.sample)
-    picture_url = URI.open(picture_url)
-     picture_description = "Some scratches on this tripad, as ypu can see."
+    picture_url = URI.open(EQUIP_URL.sample)
+    picture_description = "Some scratches on this tripad, as you can see."
   end
   item.price_per_day = (rand * rand(1..100)).round(2)
   item.brand = 'Testinfo Brandname'
