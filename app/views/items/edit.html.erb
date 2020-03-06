@@ -1,20 +1,29 @@
+<div style="background-position: center; height: 750px; background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(<%= asset_path 'camback.jpg' %>)">
+
 <div class="container">
   <div class="row">
-    <div class="col-3 item-info-and-booking">
+    <div class="item-info-and-booking mt-5" style="color: white">
       <div class="item-info">
         <%= simple_form_for(@item) do |f| %>
-          <div class="form-inputs">
+        <div class="row">
+          <div class="col-md-6">
+            <h3>Enter equipment details</h3>
             <%= f.input :brand, value: @item.brand || '' %>
             <%= f.input :model, value: @item.model || '' %>
             <%= f.input :product_description, value: @item.product_description || '' %>
             <%= f.input :item_category, collection: [ "Camera", "Lens", "Accessory" ], value: @item.item_category || 'Camera' %>
             <%= f.input :user_description, value: @item.user_description || '' %>
-            <%= f.input :condition, collection: [ "Poor", "Sufficient", "Good", "As New" ], value: @item.condition || 'Sufficient' %>
-            <%= f.input :price_per_day, value: @item.price_per_day || 0%>
           </div>
+          <div class="col-md-6 p-5 mt-5">
+            <h5 class="inline-block"> What is the condition and price per day?</h5>
+             <%= f.input :condition, collection: [ "Poor", "Sufficient", "Good", "As New" ], value: @item.condition || 'Sufficient' %>
+            <%= f.input :price_per_day, value: @item.price_per_day || 0%>
+            <%= f.button :submit, class: 'btn btn-primary' %>
+          </div>
+        </div>
 
           <div class="form-actions">
-            <%= f.button :submit, class: 'btn btn-secondary' %>
+
           </div>
         <% end %>
       </div>
@@ -41,7 +50,7 @@
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Add a picture</h5>
+              <h5 class="modal-title w-100" id="exampleModalLabel">Add a picture</h5>
             </div>
             <div class="modal-body">
               <%= simple_form_for [@item, @picture] do |f| %>
@@ -51,7 +60,7 @@
                 </div>
 
                 <div class="form-actions">
-                  <%= f.submit 'Add a picture', class: 'btn btn-secondary' %>
+                  <%= f.submit 'Add a picture', class: 'btn btn-warning' %>
                 </div>
               <% end %>
             </div>
