@@ -6,8 +6,8 @@
 <!--           responsiveness is added at a medium screen, half screen for small screens, and large screen is 12 along with mobile
  -->       <%= link_to item_path(item) do %>
             <div class="card-index">
-            <img src="<%= cl_image_tag item.pictures.first.photo.key  %>">
-                <h5 class="card-title"><%= item.brand %> - <%= item.model %></h5>
+              <%= cl_image_tag item.pictures.first.photo.key, height: 125, width: 210, crop: :fill   %>
+                <h5 class="card-title"> <%= item.model %></h5>
                 <p class="card-text"> <%= item.user_description %> </p>
               <ul class="list-group list-group-flush">
                 <li class="list-group-item">Condition is <%= item.condition %></li>
