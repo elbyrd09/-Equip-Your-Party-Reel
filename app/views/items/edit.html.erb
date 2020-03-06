@@ -9,8 +9,11 @@
             <%= f.input :product_description, value: @item.product_description || '' %>
             <%= f.input :item_category, collection: [ "Camera", "Lens", "Accessory" ], value: @item.item_category || 'Camera' %>
             <%= f.input :user_description, value: @item.user_description || '' %>
-            <%= f.input :condition, collection: [ "Poor", "Sufficient", "Good", "As New" ], value: @item.condition || 'Sufficient' %>
-            <%= f.input :price_per_day, value: @item.price_per_day || 0%>
+            <div>
+              <h3> What is the condition and price per day?</h3>
+              <%= f.input :condition, collection: [ "Poor", "Sufficient", "Good", "As New" ], value: @item.condition || 'Sufficient' %>
+              <%= f.input :price_per_day, value: @item.price_per_day || 0%>
+            </div>
           </div>
 
           <div class="form-actions">
