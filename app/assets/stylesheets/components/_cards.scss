@@ -2,6 +2,8 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
+  margin-top: 2pc;
+  margin-bottom: 2pc;
 }
 
 .card-category {
@@ -23,20 +25,6 @@
   color: blue;
   text-decoration: none;
     }
-  }
-}
-
-.card-index {
-  display: flex;
-  justify-content: start;
-  padding: 20px;
-  font-size: 10px;
-  border-radius: 15px;
-  margin: 20px;
-  box-shadow: 0px 0px 25px -12px rgba(0,0,0,0.38);
-  img {
-    height: auto;
-    background-size: cover;
   }
 }
 
@@ -89,3 +77,56 @@
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
+
+
+.col-3{
+
+    max-width: 20%;
+}
+
+.add-item-button{
+  display: flex;
+  justify-content: space-between;
+  border: black solid 1px;
+  border-radius: 5px;
+}
+
+.rental-hearder{
+  text-align: center;
+}
+
+.row{
+  margin-top: 20px;
+}
+
+.see-rental-button{
+  width: 0;
+  height: 0;
+  border-top: 100px solid grey;
+  border-right: 100px solid transparent;
+  position: absolute;
+  top: 0px;
+}
+.edit-button{
+  width: 0;
+  height: 0;
+  border-top: 100px solid grey;
+  border-right: 100px solid transparent;
+  position: absolute;
+  top: 0px;
+}
+
+.index-card {
+  position: relative;
+}
+
+.index-card-button {
+  z-index: 100;
+  color:white;
+   font-style: bold;
+    font-size:18px;
+    transform: rotate(-45deg);
+  transform-origin: 22% 133%;
+}
+
+
