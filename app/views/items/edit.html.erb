@@ -19,27 +19,45 @@
                <%= f.input :condition, collection: [ "Poor", "Sufficient", "Good", "As New" ], value: @item.condition || 'Sufficient' %>
               <%= f.input :price_per_day, value: @item.price_per_day || 0%>
               <%= f.button :submit, class: 'btn btn-primary' %>
-            </div>
-            <div class="pictures container">
-              <div class="row">
-                <%  @item.pictures.each do |picture| %>
-                  <div class="col-3">
-                    <%= cl_image_tag picture.photo.key, height: 100, width: 125, crop: :fill %>
-                    <p>  </p>
-                  </div>
-                <% end %>
-              </div>
-                <!-- Button trigger modal -->
-                <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal">
-                  Add a picture
-                </button>
-            </div>
 
+            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal">
+              Add a picture
+            </button>
+
+              <div class="container p-0 " style="width: 400px;height: 250px;">
+                  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                      <% @item.pictures.each_with_index do |picture, index| %>
+                        <% active = 'class="active"' if index == 0 %>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="<%= index %> " <%= active %>></li>
+                        <% active ='' %>
+                      <% end %>
+                    </ol>
+                    <div class="carousel-inner" style="height: 250px">
+                      <% @item.pictures.each_with_index do |picture, index| %>
+                        <% active = 'active' if index == 0 %>
+                        <div class="carousel-item <%= active %>" style="background-image: url(<%= cl_image_path picture.photo.key %>); background-size: contain; background-position: center; height: 100%; background-repeat: no-repeat;">
+
+                        </div>
+                        <% active ='' %>
+                      <% end %>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="sr-only">Next</span>
+                    </a>
+                  </div>
+              </div>
+            </div>
+            <!-- Button trigger modal -->
           </div>
         <% end %>
       </div>
     </div>
-    <div class="col-3 item-pictures-carousel">
 
 
       <!-- Modal -->
