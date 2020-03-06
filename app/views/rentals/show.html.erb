@@ -1,19 +1,30 @@
 
 <div class="container">
 <!-- Info on item thats been rented -->
-  <div class="card-rental">
+  <div class="card-rental py-5">
     <div class="rental-card-info">
-      <h5 class="card-title">You rented: <%= @rental.item.brand %> <%= @rental.item.model %> </h2>
-      <p class="card-text">Owned by <%= @rental.user.first_name %> </p>
-      <p class="card-text">From <%= @rental.start_date %> to <%= @rental.end_date %> </p>
-      <p class="card-text">Total price: <%= @rental.total_price %> </p>
+      <h3 class="card-title">You rented: <%= @rental.item.model %> </h3>
+      <h5 class="card-text">Owned by </h5>
+      <p> <%= @rental.user.first_name %> <%= @rental.user.last_name %> </p>
+      <div class="rental-dates d-flex">
+        <div class="rental-date-start pr-5">
+          <h5 class="card-text">From </h5>
+          <p> <%= @rental.start_date %></p>
+        </div>
+        <div class="rental-date-end">
+          <h5> To </h5>
+          <p> <%= @rental.end_date %> </p>
+        </div>
+      </div>
+      <h5 class="card-text">Total price: </h5>
+      <p>$<%= @rental.total_price.round(2) %> </p>
     </div>
 
     <!-- Cancel order button -->
     <div class="rental-card-buttons">
 
     <!-- Check item link -->
-      <%= link_to "Check Item", item_path(@item), class: 'btn btn-secondary' %>
+    <%= link_to "Check Item", item_path(@item), class: 'btn btn-secondary' %>
 
     <!-- Button trigger modal to write a review-->
       <% unless @rental.review %>
@@ -26,15 +37,59 @@
       <% end %>
     </div>
   </div>
-  <% if @rental.review %>
-    <div class="rental-review">
-      <h5 class="card-title"> Review </h5>
-      <p class="card-text"> <%= @rental.review.content  %> </p>
-      <h5 class="card-title"> Rating </h5>
-      <p class="card-text"> <%= @rental.review.rating  %> </p>
-    </div>
-  <% end %>
 
+
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-9 item-pictures-carousel">
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+          <ol class="carousel-indicators">
+            <% @item.pictures.each_with_index do |picture, index| %>
+              <% active = 'class="active"' if index == 0 %>
+              <li data-target="#carouselExampleIndicators" data-slide-to="<%= index %> " <%= active %>></li>
+              <% active ='' %>
+            <% end %>
+          </ol>
+          <div class="carousel-inner shadow-lg">
+            <% @item.pictures.each_with_index do |picture, index| %>
+              <% active = 'active' if index == 0 %>
+              <div class="carousel-item <%= active %>">
+                <%= cl_image_tag picture.photo.key, class: "d-block w-100 ", alt: "Slide not showing " %>
+                <div class="carousel-caption d-none d-md-block">
+                  <p><%= picture.description %> </p>
+                </div>
+              </div>
+              <% active ='' %>
+            <% end %>
+          </div>
+          <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+         </a>
+          <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+           <span class="carousel-control-next-icon" aria-hidden="true"></span>
+           <span class="sr-only">Next</span>
+          </a>
+        </div>
+      </div>
+      <div class="col-3 rental-review">
+        <% if @rental.review %>
+          <div class="card text-center mt-2" style="width: 18rem;">
+            <div class="card-body">
+              <h3 class="card-title">Review </h3>
+              <hr>
+              <p class="card-text pb-3"> <%= @rental.review.content  %> </p>
+              <h5 class="card-title"> Rating </h5>
+              <hr>
+              <p class="card-text"> <%= @rental.review.rating  %> </p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
 
   <!-- Modal -->
   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
