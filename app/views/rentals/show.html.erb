@@ -6,6 +6,7 @@
       <h5 class="card-title">You rented: <%= @rental.item.brand %> <%= @rental.item.model %> </h2>
       <p class="card-text">Owned by <%= @rental.user.first_name %> </p>
       <p class="card-text">From <%= @rental.start_date %> to <%= @rental.end_date %> </p>
+      <p class="card-text">Total price: <%= @rental.total_price %> </p>
     </div>
 
     <!-- Cancel order button -->
