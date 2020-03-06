@@ -10,7 +10,6 @@
         <%= link_to "Edit your profile", edit_user_registration_path, class: 'btn btn-primary' %>
       </div>
     </div>
-    <div></div>
     <div class="col-9 user-rentals-and-owned">
       <div class="user-rentals">
         <div class="rental-hearder">
@@ -28,11 +27,11 @@
                     <p class="card-text"> <%= rental.item.product_description %> </p>
                   </div>
                   <ul class="list-group list-group-flush">
-                    <li class="list-group-item"> Price per day $:  <%= rental.item.price_per_day %></li>
-                    <li class="list-group-item"> Condtion:         <%= rental.item.condition %></li>
+                    <li class="list-group-item"> Price per day: <strong>$<%= rental.item.price_per_day %></strong></li>
+                    <li class="list-group-item"> Condtion: <strong><%= rental.item.condition %></strong></li>
                   </ul>
                   <div class="card-body">
-                    <p class="card-text"> Owner:                    <%= rental.item.user.first_name %></p>
+                    <p class="card-text"> Owner: <strong><%= rental.item.user.first_name %></strong></p>
                   </div>
                 </div>
               <% end %>
@@ -55,8 +54,8 @@
                     <p class="card-text"> <%= item.product_description %> </p>
                   </div>
                   <ul class="list-group list-group-flush">
-                    <li class="list-group-item"> Price per day $:  <%= item.price_per_day %></li>
-                    <li class="list-group-item"> Condtion:         <%= item.condition %></li>
+                    <li class="list-group-item"> Price per day: <strong>$<%= item.price_per_day %></strong></li>
+                    <li class="list-group-item"> Condtion: <strong><%= item.condition %></strong></li>
                   </ul>
                 </div>
               <% end %>
@@ -65,5 +64,4 @@
     </div>
   </div>
 </div>
-
 </div>
