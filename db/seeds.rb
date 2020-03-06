@@ -14,6 +14,10 @@ Rental.destroy_all
 Item.destroy_all
 User.destroy_all
 
+CAMERA = [ "Aigo", "Advert Tech", "Foscam", "Phase One", "Thomson", "AgfaPhoto", "Leica", "Medion", "Minox", "Praktica", "Rollei", "Tevion", "Traveler", "Vageeswari", "Canon", "Casio", "Epson", "Fujifilm", "Nikon", "Olympus", "Ricoh", "Panasonic", "Pentax", "Sigma", "Sony", "Samsung", "Hasselblad", "Memoto", "BenQ", "Genius", "Bell & Howell", "GE", "GoPro", "HP", "Kodak", "Lytro", "Polaroid", "Vivitar"]
+EQUIP = [ "Actinograph", "Air-gap flash", "Photo album", "Anti-halation backing", "Autofocus", "Autographic film", "", "Ball head", "Beauty dish", "BeetleCam", "Bellieni", "Berlebach", "Billingham Bags", "Bulb (photography)", "", "C-stand", "Camera", "Camera monitor", "Camera pedestal", "Camera stabilizer", "Cellulose acetate film", "Changing bag", "Color chart", "Color head", "Color print film", "ColorChecker", "Copy stand", "", "Dark slide (photography)", "Darkroom", "Depssi", "Developing tank", "Dew shield", "Diaphragm (optics)", "Diffuser (optics)", "Digital camera back", "Digital scan back", "Digital versus film photography", "Director's viewfinder", "Dust reduction system", "", "Easel", "Electronic viewfinder", "Enlarger", "Extension tube", "", "Film holder", "Film plane", "Film scanner", "Photographic filter", "Flange focal distance", "Foba", "Focus finder", "Focusing screen", "Four Thirds system", "", "Gigapan", "Gitzo", "Gray card", "Ground glass", "", "Hama (company)", "", "Image processor", "Inkjet technology", "Intervalometer", "", "Jib (camera)", "", "Lee Filters", "Lens adapter", "Lens board", "Lens cover", "Lens hood", "Light meter", "Lightbox", "List of photographic equipment makers", "List of sensors used in digital cameras", "Loupe", "Lowepro", "LumiQuest", "Lyot stop", "", "Mammoth plate", "Manfrotto", "Manual focus override", "Maul Camera Rocket", "Micro Four Thirds system", "Miller Camera Support Equipment", "Mirror cut-off", "Mirror lock-up", "Mole-Richardson", "Monopod", "", "Negative (photography)", "Nikon NASA F4", "", "Onboard camera", "Optical mount", "", "Panaglide", "Pentamirror", "Pentaprism", "Photo booth", "Photo-Me International", "Photographic film", "Photographic paper", "Photographic studio", "Photosensitive glass", "Photographic plate", "Positive (photography)", "Process camera", "Prontor-Compur", "", "R & J Beck", "Reflector (photography)", "Registration pin", "Remote camera", "Réseau plate", "Ricoh GR digital cameras", "Ricoh GR film cameras", "Roll film", "", "Safelight", "Sandwich panel", "Scientific Working Group – Imaging Technology", "Selenium meter", "Selfie stick", "Shutter lag", "Singh-Ray", "History of the single-lens reflex camera", "Slide copier", "Slide viewer", "Slik Corporation", "Snoot", "Softbox", "Hard and soft light", "Sound blimp", "Speed ring", "Stanhope (optical bijou)", "Steadicam", "Stereoplotter", "Stereoscope", "", "Tachistoscope", "Telecompressor", "Thermal copier", "Think Tank Photo", "Through-the-lens metering", "Triggertrap", "Tripod", "Tripod (photography)", "Tripod head", "", "Velbon", "View-Master", "Viewfinder", "", "Waterhouse stop", "Wratten number", "", "Zink (technology)", "Zone plate"]
+LENSES = [ "Canon EF 14mm lens", "Canon EF 17-40mm lens", "Canon EF 20mm lens", "Canon EF 20-35mm lens", "Canon EF 24–70mm lens", "Canon EF 24-105mm lens", "Canon EF 200mm lens", "Canon EF 28-80mm lens", "Canon EF 28-90mm lens", "Canon EF 28-105mm lens", "Canon EF 28-200mm lens", "Canon EF 28mm lens", "Canon EF 35mm lens", "Canon EF 38-76mm lens", "Canon EF 40mm lens", "Canon EF 55–200mm lens", "Canon EF 70–200mm lens", "Canon EF 70-300mm lens", "Canon EF 80-200mm lens", "Canon EF 85mm lens", "Canon EF 100mm lens", "Canon EF 100–200mm lens", "Canon EF 100-300mm lens", "Canon EF 180mm f/3.5L Macro USM lens", "Canon EF 200-400mm lens", "Canon EF 500mm lens", "Canon EF 600mm lens", "Canon EF 800mm lens", "", "Canon EF 8-15mm lens", "Canon EF 11–24mm lens", "Canon EF 15mm lens", "Canon EF 16-35mm lens", "Canon EF 17-35mm lens", "Canon EF 22-55mm lens", "Canon EF 24-85mm lens", "Canon EF 24mm lens", "Canon EF 28-70mm lens", "Canon EF 28-135mm lens", "Canon EF 28-300mm lens", "Canon EF 35-70mm lens", "Canon EF 35–80mm lens", "Canon EF 35–105mm lens", "Canon EF 35-135mm lens", "Canon EF 35–350mm lens", "Canon EF 50-200mm lens", "Canon EF 50mm lens", "Canon EF 70–210mm lens", "Canon EF 75–300mm lens", "Canon EF 90–300mm lens", "Canon EF 100-400mm lens", "Canon EF 135mm lens", "Canon EF 300mm lens", "Canon EF 400mm lens", "Canon EF 1200mm lens", "Canon Extender EF", "Canon TS-E 17mm lens", "Canon TS-E 24mm lens", "Canon TS-E 45mm lens", "Canon TS-E 50mm lens", "Canon TS-E 90mm lens", "Canon TS-E 135mm lens", "", "Canon MP-E 65mm f/2.8 1–5x Macro", "", "Canon EF portrait lenses", "Sony E 16mm F2.8", "Sony E 20mm F2.8", "Sony FE 20mm F1.8 G", "Sony Carl Zeiss Sonnar T* E 24mm F1.8 ZA", "Sony FE 24mm F1.4 GM", "Sony FE 28mm F2", "Sony E 30mm F3.5 Macro", "Sony Zeiss Distagon T* FE 35mm F1.4 ZA", "Sony E 35mm F1.8 OSS", "Sony Carl Zeiss Sonnar T* FE 35mm F2.8 ZA", "Sony FE 35mm F1.8", "Sony Zeiss Planar T* FE 50mm F1.4 ZA", "Sony E 50mm F1.8 OSS", "Sony FE 50mm F1.8", "Sony FE 50mm F2.8 Macro", "Sony Carl Zeiss Sonnar T* FE 55mm F1.8 ZA", "Sony FE 85mm F1.4 GM", "Sony FE 85mm F1.8", "Sony FE 90mm F2.8 Macro G OSS", "Sony FE 100mm F2.8 STF GM OSS", "Sony FE 135mm F1.8 GM", "Sony FE 400mm F2.8 GM OSS", "Sony FE 600mm F4.0 GM OSS", "Sony E 10-18mm F4 OSS", "Sony FE 12-24mm F4 G", "Sony FE 16-35mm F2.8 GM", "Sony Zeiss Vario-Tessar T* FE 16-35mm F4 ZA OSS", "Sony FE C 16-35mm T3.1 G", "Sony E PZ 16-50mm F3.5-5.6 OSS", "Sony E 16-55mm F2.8 G", "Sony Carl Zeiss Vario-Tessar T* E 16-70mm F4 ZA OSS", "Sony E 18-50mm F4-5.6", "Sony E 18-55mm F3.5-5.6 OSS", "Sony E PZ 18-105mm F4 G OSS", "Sony E PZ 18-110mm F4 G OSS", "Sony E 18-135mm F3.5-5.6 OSS", "Sony E 18-200mm F3.5-6.3 OSS", "Sony E 18-200mm F3.5-6.3 OSS LE", "Sony E PZ 18-200mm F3.5-6.3 OSS", "Sony Carl Zeiss Vario-Tessar T* FE 24-70mm F4 ZA OSS", "Sony FE 24-70mm F2.8 GM", "Sony FE 24-105mm F4 G OSS", "Sony FE 24-240mm F3.5-6.3 OSS", "Sony FE 28-70mm F3.5-5.6 OSS", "Sony FE PZ 28-135mm F4 G OSS", "Sony E 55-210mm F4.5-6.3 OSS", "Sony FE 70-200mm F4 G OSS", "Sony FE 70-200mm F2.8 GM OSS", "Sony FE 70-300mm F4.5-5.6 G OSS", "Sony E 70-350mm F4.5-6.3 G OSS", "Sony FE 100-400mm F4.5-5.6 GM OSS", "Sony FE 200-600mm F5.6-6.3 G OSS", "Sony Fisheye Converter 0.62x", "Sony Fisheye Converter 0.62x", "Sony Ultra Wide Converter 0.75x", "Sony Ultra Wide Converter 0.75x", "Sony Fisheye Converter 0.57x", "Sony Ultra Wide Converter 0.75x", "Sony Tele Converter 1.4x", "Sony Tele Converter 2x", "Sony Lens Adapter E/A 1", "Sony Lens Adapter E/A 2", "Sony Lens Adapter E/A 4", "Sony Lens Adapter E/A 3", "16mm", "20mm", "20mm", "24mm", "24mm", "28mm", "30mm", "35mm", "35mm", "35mm", "35mm", "50mm", "50mm", "50mm", "50mm", "55mm", "85mm", "85mm", "90mm", "100mm", "135mm", "400mm", "600mm", "10-22mm", "12-24mm", "16-35mm", "16-35mm", "16-35mm", "16-50mm", "16-55mm", "16-70mm", "18-50mm", "18-55mm", "18-105mm", "18-110mm", "18-135mm", "18-200mm", "18-200mm", "18-200mm", "24-70mm", "24-70mm", "24-105mm", "24-240mm", "28-70mm", "28-135mm", "55-210mm", "70-200mm", "70-200mm", "70-300mm", "70-350mm", "100-400mm", "200-600mm" ]
+
 ADDRESSESS = [
   "777 Brockton Avenue, Abington MA 2351",
   "30 Memorial Drive, Avon MA 2322",
@@ -259,6 +263,8 @@ user_with_rentals.first_name = 'GuyWhoRents'
 user_with_rentals.last_name = 'Jackson'
 user_with_rentals.location = 'Canggu'
 user_with_rentals.save!
+puts "Created #{user_with_rentals}"
+user_with_rentals.save!
 
 # create user who rents out his equipment
 
@@ -267,14 +273,15 @@ user_with_items.first_name = 'GuyWhoOwns'
 user_with_items.last_name = 'Smith'
 user_with_items.location = 'Sanur'
 user_with_items.save!
+puts "Created #{user_with_items}"
 
 # create
 15.times do
   item = Item.new(user: user_with_items)
   item.available = true
   item.price_per_day = (rand * rand(1..10)).round(2)
-  item.brand = Faker::Vehicle.manufacture #=> "Lamborghini"
-  item.model = Faker::Vehicle.model #=> "A8"
+  item.brand = CAMERA.sample
+  item.model = LENSES.sample
   item.product_description = Faker::Vehicle.standard_specs.join('')
   item.user_description = Faker::Books::Lovecraft.sentence
   item.item_category = ["Camera", "Accessory", "Lens"].sample
@@ -282,6 +289,7 @@ user_with_items.save!
   item.address = ADDRESSESS.sample
   item.save!
 end
+puts "Creating items"
 
 # create rentals
 3.times do
@@ -291,6 +299,7 @@ end
   rental.total_price = (rand * rand(10..100)).round(2)
   rental.save!
 end
+puts "Creating rentals"
 
 # create reviews
 review = Review.new(rental: Rental.first)
@@ -298,8 +307,10 @@ review.content = "Great product, just awesome"
 review.rating = rand(1..5)
 review.save!
 
+
 review = Review.new(rental: Rental.last)
 review.content = "Awful, horrible condition, owner was not reachable"
 review.rating = rand(1..5)
 review.save!
 
+puts "Creating reviews"

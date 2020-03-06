@@ -2,7 +2,12 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   def index
-    @items = Item.geocoded
+    if params[:query].present?
+      @items = Item.search_by_brand_and_model_and_item_category(params[:query])
+    else
+      @items = Item.geocoded
+    end
+
     @markers = @items.map do |item|
       {
         lat: item.latitude,
