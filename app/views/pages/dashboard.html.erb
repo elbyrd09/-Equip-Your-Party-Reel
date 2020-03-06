@@ -1,8 +1,9 @@
-<div class="container">
-  <div class="row">
-    <div class="col-3 user-info">
-      <div class="user-info">
-        <h5 class="card-title"> <%= @user.first_name %> <%= @user.last_name %> </h5>
+
+<div class="container-fluid">
+  <div class="row d-flex justify-content-center">
+    <div class="col-3 user-info d-flex flex-column text-center align-items-center mb-5" style="color: white;">
+        <hr>
+        <h3 class="card-title"> <strong><%= @user.first_name %> <%= @user.last_name %></strong> </h3>
         <p class="card-text"> <%= @user.email %></p>
         <p class="card-text"> <%= @user.location %></p>
         <hr>
@@ -11,52 +12,56 @@
     </div>
     <div class="col-9 user-rentals-and-owned">
       <div class="user-rentals">
+        <div class="rental-hearder">
         <h2 class="mt-10">Rentals</h2>
-        <div class="container">
+        </div>
             <div class="cards">
               <% @user.rentals.each do |rental| %>
-                <div class="card-index">
-                  <%= link_to 'See Rental', rental_path(rental.id) %>
+                <div class="card index-card">
+                  <%= link_to 'See Rental', rental_path(rental.id), class: "index-card-button-rental" %>
+
+                  <a href="#" class="see-rental-button"></a>
                   <img src="<%= asset_path('canon.jpeg') %>" class="card-img-top" alt="Item image">
                   <div class="card-body">
                     <h5 class="card-title"> <%= rental.item.brand %> <%= rental.item.model %></h5>
                     <p class="card-text"> <%= rental.item.product_description %> </p>
                   </div>
                   <ul class="list-group list-group-flush">
-                    <li class="list-group-item"> <%= rental.item.price_per_day %></li>
-                    <li class="list-group-item"> <%= rental.item.condition %></li>
+                    <li class="list-group-item"> Price per day: <strong>$<%= rental.item.price_per_day %></strong></li>
+                    <li class="list-group-item"> Condtion: <strong><%= rental.item.condition %></strong></li>
                   </ul>
                   <div class="card-body">
-                    <p class="card-text"> Owner: <%= rental.item.user.first_name %></p>
+                    <p class="card-text"> Owner: <strong><%= rental.item.user.first_name %></strong></p>
                   </div>
                 </div>
               <% end %>
             </div>
-        </div>
-      </div>
+          </div>
       <div class="user-owned-items">
+        <div class="add-item-button">
         <h2 class="mt-10">Items owned by you</h2>
-        <div class="container">
+        <%= link_to "Add Item", new_item_path, class: 'btn btn-secondary' %>
+        </div>
             <div class="cards">
               <% @user.items.each do |item| %>
-                <div class="card-index">
-                  <%= link_to 'Edit item', edit_item_path(item.id) %>
+                <div class="card index-card">
+                  <%= link_to 'Edit item', edit_item_path(item.id), class: "index-card-button-edit"%>
+
+                  <a href="#" class="edit-button"></a>
                   <img src="<%= asset_path('canon.jpeg') %>" class="card-img-top" alt="Item image">
                   <div class="card-body">
                     <h5 class="card-title"> <%= item.brand %> <%= item.model %></h5>
                     <p class="card-text"> <%= item.product_description %> </p>
                   </div>
                   <ul class="list-group list-group-flush">
-                    <li class="list-group-item"> <%= item.price_per_day %></li>
-                    <li class="list-group-item"> <%= item.condition %></li>
+                    <li class="list-group-item"> Price per day: <strong>$<%= item.price_per_day %></strong></li>
+                    <li class="list-group-item"> Condtion: <strong><%= item.condition %></strong></li>
                   </ul>
                 </div>
               <% end %>
             </div>
-        </div>
-        <%= link_to "Add Item", new_item_path, class: 'btn btn-secondary' %>
       </div>
     </div>
   </div>
 </div>
-
+</div>
