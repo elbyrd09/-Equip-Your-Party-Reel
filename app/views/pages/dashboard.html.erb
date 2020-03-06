@@ -1,15 +1,16 @@
+
 <div class="container-fluid">
-  <div class="row">
-    <div class="col-3 user-info">
-        <h2>Your Profile</h2>
+  <div class="row d-flex justify-content-center">
+    <div class="col-3 user-info d-flex flex-column text-center align-items-center mb-5" style="color: white;">
         <hr>
-        <h5 class="card-title"> <%= @user.first_name %> <%= @user.last_name %> </h5>
+        <h3 class="card-title"> <strong><%= @user.first_name %> <%= @user.last_name %></strong> </h3>
         <p class="card-text"> <%= @user.email %></p>
         <p class="card-text"> <%= @user.location %></p>
         <hr>
         <%= link_to "Edit your profile", edit_user_registration_path, class: 'btn btn-primary' %>
       </div>
     </div>
+    <div></div>
     <div class="col-9 user-rentals-and-owned">
       <div class="user-rentals">
         <div class="rental-hearder">
@@ -18,7 +19,7 @@
             <div class="cards">
               <% @user.rentals.each do |rental| %>
                 <div class="card index-card">
-                  <%= link_to 'See Rental', rental_path(rental.id), class: "index-card-button" %>
+                  <%= link_to 'See Rental', rental_path(rental.id), class: "index-card-button-rental" %>
 
                   <a href="#" class="see-rental-button"></a>
                   <img src="<%= asset_path('canon.jpeg') %>" class="card-img-top" alt="Item image">
@@ -45,7 +46,7 @@
             <div class="cards">
               <% @user.items.each do |item| %>
                 <div class="card index-card">
-                  <%= link_to 'Edit item', edit_item_path(item.id), class: "index-card-button"%>
+                  <%= link_to 'Edit item', edit_item_path(item.id), class: "index-card-button-edit"%>
 
                   <a href="#" class="edit-button"></a>
                   <img src="<%= asset_path('canon.jpeg') %>" class="card-img-top" alt="Item image">
@@ -65,3 +66,4 @@
   </div>
 </div>
 
+</div>
