@@ -1,2 +1,6 @@
-<h2><%= item.brand %>: <%= item.model %></h2>
-<p><%= item.price_per_day %>/day</p>
+<div class="info-window" style="padding: 10px 10px 0px 10px; max-width: 606px; max-height: 251px; border-radius: 20px;">
+  <h4><strong><%= item.model %></strong></h4>
+  <p>Condition is <%= item.condition %></p>
+  <br>
+  <h5 style="color: blue">$<%= item.price_per_day %>/day</h5>
+</div>
