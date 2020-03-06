@@ -1,23 +1,23 @@
 
 <div class="container">
 <!-- Info on item thats been rented -->
-  <div class="card-rental py-5">
+  <div class="card-rental pt-5">
     <div class="rental-card-info">
-      <h3 class="card-title">You rented: <%= @rental.item.model %> </h3>
+      <h3 class="card-title">You rented: <small class="text-black-50"><%= @rental.item.model %> </small> </h3>
       <h5 class="card-text">Owned by </h5>
-      <p> <%= @rental.user.first_name %> <%= @rental.user.last_name %> </p>
+      <p class="text-black-50"> <%= @rental.user.first_name %> <%= @rental.user.last_name %> </p>
       <div class="rental-dates d-flex">
         <div class="rental-date-start pr-5">
           <h5 class="card-text">From </h5>
-          <p> <%= @rental.start_date %></p>
+          <p class="text-black-50"> <%= @rental.start_date %></p>
         </div>
         <div class="rental-date-end">
           <h5> To </h5>
-          <p> <%= @rental.end_date %> </p>
+          <p class="text-black-50"> <%= @rental.end_date %> </p>
         </div>
       </div>
       <h5 class="card-text">Total price: </h5>
-      <p>$<%= @rental.total_price.round(2) %> </p>
+      <p class="text-black-50">$<%= @rental.total_price.round(2) %> </p>
     </div>
 
     <!-- Cancel order button -->
@@ -83,7 +83,7 @@
               <p class="card-text pb-3"> <%= @rental.review.content  %> </p>
               <h5 class="card-title"> Rating </h5>
               <hr>
-              <p class="card-text"> <%= @rental.review.rating  %> </p>
+              <h5 class="card-text text-primary"> <%= @rental.review.rating  %> </h5>
             </div>
           </div>
         <% end %>
