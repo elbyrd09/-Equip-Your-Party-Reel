@@ -258,7 +258,7 @@ user_with_rentals = User.new(password: 'password', email: 'user1@gmail.com')
 user_with_rentals.first_name = 'GuyWhoRents'
 user_with_rentals.last_name = 'Jackson'
 user_with_rentals.location = 'Canggu'
-user_with_rentals.save
+user_with_rentals.save!
 
 # create user who rents out his equipment
 
@@ -266,7 +266,7 @@ user_with_items = User.new(password: 'password', email: 'user2@hotmail.com')
 user_with_items.first_name = 'GuyWhoOwns'
 user_with_items.last_name = 'Smith'
 user_with_items.location = 'Sanur'
-user_with_items.save
+user_with_items.save!
 
 # create
 15.times do
@@ -280,7 +280,7 @@ user_with_items.save
   item.item_category = ["Camera", "Accessory", "Lens"].sample
   item.condition = ["Poor", "Sufficient", "Good", "As new"].sample
   item.address = ADDRESSESS.sample
-  item.save
+  item.save!
 end
 
 # create rentals
@@ -289,17 +289,17 @@ end
   rental.start_date = Date.new(2020,2,3)
   rental.end_date = Date.new(2020,4,12)
   rental.total_price = (rand * rand(10..100)).round(2)
-  rental.save
+  rental.save!
 end
 
 # create reviews
 review = Review.new(rental: Rental.first)
 review.content = "Great product, just awesome"
 review.rating = rand(1..5)
-review.save
+review.save!
 
 review = Review.new(rental: Rental.last)
 review.content = "Awful, horrible condition, owner was not reachable"
 review.rating = rand(1..5)
-review.save
+review.save!
 
