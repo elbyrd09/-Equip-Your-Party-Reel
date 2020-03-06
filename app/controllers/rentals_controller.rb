@@ -12,6 +12,7 @@ class RentalsController < ApplicationController
     @item = Item.find(params[:item_id])
     @rental.item = @item
     @rental.user = @user
+    @rental.total_price = (@rental.end_date - @rental.start_date) * @rental.item.price_per_day
     if @rental.save
       redirect_to rental_path(@rental)
     else

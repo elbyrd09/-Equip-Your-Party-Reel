@@ -8,6 +8,7 @@
 
 require 'faker'
 
+Picture.destroy_all
 Review.destroy_all
 Rental.destroy_all
 Item.destroy_all
@@ -261,15 +262,17 @@ user_with_rentals = User.new(password: 'password', email: 'user1@gmail.com')
 user_with_rentals.first_name = 'GuyWhoRents'
 user_with_rentals.last_name = 'Jackson'
 user_with_rentals.location = 'Canggu'
-user_with_rentals.save
+user_with_rentals.save!
 puts "Created #{user_with_rentals}"
+user_with_rentals.save!
+
 # create user who rents out his equipment
 
 user_with_items = User.new(password: 'password', email: 'user2@hotmail.com')
 user_with_items.first_name = 'GuyWhoOwns'
 user_with_items.last_name = 'Smith'
 user_with_items.location = 'Sanur'
-user_with_items.save
+user_with_items.save!
 puts "Created #{user_with_items}"
 
 # create
@@ -284,7 +287,7 @@ puts "Created #{user_with_items}"
   item.item_category = ["Camera", "Accessory", "Lens"].sample
   item.condition = ["Poor", "Sufficient", "Good", "As new"].sample
   item.address = ADDRESSESS.sample
-  item.save
+  item.save!
 end
 puts "Creating items"
 
@@ -294,7 +297,7 @@ puts "Creating items"
   rental.start_date = Date.new(2020,2,3)
   rental.end_date = Date.new(2020,4,12)
   rental.total_price = (rand * rand(10..100)).round(2)
-  rental.save
+  rental.save!
 end
 puts "Creating rentals"
 
@@ -302,12 +305,12 @@ puts "Creating rentals"
 review = Review.new(rental: Rental.first)
 review.content = "Great product, just awesome"
 review.rating = rand(1..5)
-review.save
+review.save!
 
 
 review = Review.new(rental: Rental.last)
 review.content = "Awful, horrible condition, owner was not reachable"
 review.rating = rand(1..5)
-review.save
+review.save!
 
 puts "Creating reviews"
