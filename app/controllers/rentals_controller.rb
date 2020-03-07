@@ -4,6 +4,7 @@ class RentalsController < ApplicationController
   def show
     @item = Item.find(@rental.item.id)
     @review = Review.new
+    authorize @rental
   end
 
   def create
@@ -13,6 +14,7 @@ class RentalsController < ApplicationController
     @rental.item = @item
     @rental.user = @user
     @rental.total_price = (@rental.end_date - @rental.start_date) * @rental.item.price_per_day
+    authorize @rental
     if @rental.save
       redirect_to rental_path(@rental)
     else
@@ -22,6 +24,7 @@ class RentalsController < ApplicationController
 
   def destroy
     @rental = Rental.find(params[:id])
+    authorize @rental
     @rental.destroy
     redirect_to dashboard_path
   end

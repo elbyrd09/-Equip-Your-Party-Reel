@@ -4,6 +4,7 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @rental = Rental.find(params[:rental_id])
     @review.rental = @rental
+    authorize @review
     # raise
     if @review.save
       redirect_to rental_path(@rental)

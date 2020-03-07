@@ -24,6 +24,8 @@ gem 'geocoder';
 gem 'cloudinary', '~> 1.12.0'
 # added by Evan for PGSearch
 gem 'pg_search', '~> 2.3.0'
+#added by Matthijs for Pundit
+gem 'pundit'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
