@@ -1,5 +1,7 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: [:index, :show]
+
 
   def index
     if params[:query].present?
@@ -20,11 +22,13 @@ class ItemsController < ApplicationController
 
   def show
     @rental = Rental.new
+    authorize @item
   end
 
   def create
     @item = Item.new(item_params)
     @item.user = current_user
+    authorize @item
     if @item.save
       redirect_to edit_item_path(@item)
     else
@@ -35,10 +39,12 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @picture = Picture.new
+    authorize @item
   end
 
   def update
     @picture = Picture.new
+    authorize @item
     if @item.update(item_params)
         redirect_to item_path(@item.id)
     else
@@ -48,10 +54,12 @@ class ItemsController < ApplicationController
 
   def edit
     @picture = Picture.new
+    authorize @item
   end
 
   def destroy
-    @item.destory
+    authorize @item
+    @item.destroy
     redirect_to dashboard_path
   end
 

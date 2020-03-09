@@ -4,6 +4,7 @@ class PicturesController < ApplicationController
   def create
     @picture = Picture.new(picture_params)
     @picture.item = Item.find(params[:item_id])
+    authorize @picture
     if @picture.save
         redirect_to edit_item_path(@picture.item.id)
     else
@@ -13,6 +14,7 @@ class PicturesController < ApplicationController
   end
 
   def udpate
+    authorize @picture
     if @picture.update(picture_params)
       redirect_to edit_item_path(@picture.item.id)
     else
@@ -21,7 +23,8 @@ class PicturesController < ApplicationController
   end
 
   def destroy
-    @picture.destory
+    authorize @picture
+    @picture.destroy
     redirect_to edit_item_path(@picture.item.id)
   end
 

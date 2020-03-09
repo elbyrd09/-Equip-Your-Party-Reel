@@ -5,7 +5,7 @@
     <div class="rental-card-info">
       <h3 class="card-title">You rented: <small class="text-black-50"><%= @rental.item.model %> </small> </h3>
       <h5 class="card-text">Owned by </h5>
-      <p class="text-black-50"> <%= @rental.user.first_name %> <%= @rental.user.last_name %> </p>
+      <p class="text-black-50"> <%= @rental.item.user.first_name %> <%= @rental.item.user.last_name %> </p>
       <div class="rental-dates d-flex">
         <div class="rental-date-start pr-5">
           <h5 class="card-text">From </h5>
